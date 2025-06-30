@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ======== Кольорові змінні ======== */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #1a1a1a;
+  --primary-color: #3f3f3f;
+  --secondary-color: #b0b0b0;
+  --accent-color: #a3a3a3;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+}
+
+.dark {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --primary-color: #e5e5e5;
+  --secondary-color: #b0b0b0;
+  --accent-color: #7a7a7a;
+  --card-bg: #1e1e1e;
+  --border-color: #2e2e2e;
+}
+
+* {
+  font-family: "Playpen Sans", cursive;
+  font-weight: 300;
+  font-style: light;
+}
+
+/* ======== Базова стилізація ======== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* ======== Абзаци та текст ======== */
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+small,
+.text-small {
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button:hover {
+  border-color: var(--border-color);
+  background-color: var(--secondary-color);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.text-muted {
+  color: var(--secondary-color);
+}
