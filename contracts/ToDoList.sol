@@ -37,7 +37,7 @@ contract ToDoList {
         inc();
 
         uint256 idNumber = _idUser;
-        toDoListApp storage toDo = toDolistApps[msg.sender];
+        ToDoListApp storage toDo = toDoListApps[msg.sender];
 
         toDo.account = msg.sender;
         toDo.message = _message;
@@ -49,5 +49,31 @@ contract ToDoList {
         messageId.push(idNumber);
 
         emit toDoEvent(msg.sender, toDo.userId, _message, toDo.completed);
+    }
+
+    function getCreatorData(
+        address _address
+    ) public view returns (address, uint256, string memory, bool) {
+        ToDoListApp memory userData = toDoListApps[_address];
+
+        return (
+            userData.account,
+            userData.userId,
+            userData.message,
+            userData.completed
+        );
+    }
+
+    function getAddress() external view returns (address[] memory) {
+        return creators;
+    }
+
+    function getMessages() external view returns (string[] memory) {
+        return message;
+    }
+
+    function toggleComplete(address _address) public {
+        ToDoListApp storage userData = toDoListApps[_address];
+        userData.completed = !userData.completed;
     }
 }

@@ -1,7 +1,14 @@
-import React from "react";
+"use client";
+import { useState, useEffect, useContext } from "react";
+import { ToDoListContext, ToDoListProvider } from "@/context/ToDoListApp";
 
 const Home = () => {
-  return <div>Home</div>;
+  const { checkIfWalletsIsConnected } = useContext(ToDoListContext);
+
+  useEffect(() => {
+    checkIfWalletsIsConnected();
+  }, []);
+  return <h1>Hello</h1>;
 };
 
 export default Home;
